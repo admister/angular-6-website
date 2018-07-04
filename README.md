@@ -1,4 +1,9 @@
-# Website
+# Angular 6 website
+
+# Check out videos series on creating and angualar 6 website on the link below on youtube
+
+[My youTube Channel](https://www.youtube.com/channel/UCcfCHgDDBw65jdnd9DTKwgg)
+[Creating your first website with angular 6 - Video Playlist](https://www.youtube.com/playlist?list=PLY7EDLM5qnl47r52Rf3h4AEq9TRooTgo2)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
