@@ -3,12 +3,40 @@
 <head>
   <meta charset="utf-8">
   <title>Website</title>
+  <!--Meta Keywords and Description-->
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Main CSS Files -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Namari Color CSS -->
+  <link rel="stylesheet" href="assets/css/namari-color.css">
+
+  <!--Icon Fonts - Font Awesome Icons-->
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/ionicons.css">
+   <!--Google Webfonts-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-  <app-root></app-root>
+  <div id="wrapper">
+  <app-root>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="status" class="la-ball-triangle-path">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+    </div>
+    <!--End of Preloader-->
+  </app-root>
+</div>
 </body>
 </html>
