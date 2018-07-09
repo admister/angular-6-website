@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -20,7 +25,10 @@ import { ArticleComponent } from './article/article.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PagerService } from './pager.service';
-import { SigninComponent } from './signin/signin.component';
+import { LoginComponent } from './login/login.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { SignupComponent } from './signup/signup.component';
+
 
 
 @NgModule({
@@ -41,11 +49,19 @@ import { SigninComponent } from './signin/signin.component';
     ArticleComponent,
     NotfoundComponent,
     PaginationComponent,
-    SigninComponent,
+    LoginComponent,
+    ContactusComponent,
+    SignupComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [ConfigService, PagerService],
   bootstrap: [AppComponent]

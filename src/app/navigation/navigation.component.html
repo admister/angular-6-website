@@ -17,10 +17,9 @@
                 <!--End of Logo-->                
 
                 <aside>
-
-                    <app-social></app-social>
-
+                    <app-social></app-social>              
                 </aside>
+
 
                       <!--Main Navigation-->
             <nav id="nav-main">
@@ -48,6 +47,9 @@
                 </li>
                 <li>
                     <a routerLink="/blog"  (click)="getActiveTab('/blog')" [class.active]="activetab === '/blog'">Blog</a>
+                </li>
+                <li >
+                    <a  (click)="logout()" >Logout</a>
                 </li>
             </ul>
         </nav>
