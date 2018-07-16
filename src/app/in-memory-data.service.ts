@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService, RequestInfo, ResponseOptions, RequestInfoUtilities, ParsedRequestUrl } from 'angular-in-memory-web-api';
+import { InMemoryDbService, RequestInfo, ResponseOptions } from 'angular-in-memory-web-api';
 
 @Injectable({
   providedIn: 'root'
@@ -7,61 +7,64 @@ import { InMemoryDbService, RequestInfo, ResponseOptions, RequestInfoUtilities, 
 export class InMemoryDataService implements InMemoryDbService {
 
   constructor() { }
-
   createDb() {
     const users = [
-      { id: 11, firstName: 'jagmohan', lastName: 'Kumar', password: 'welcome', email: 'jagmohan11@gmail.com' },
+      { id: 11, firtName: 'rahul', lastName: 'gupta', email: 'test123@gmail.com', password: 'welcome' },
+      { id: 12, firstName: 'rohan', lastName: 'gupta', email: 'test345@gmail.com', password: 'welcome' }
     ];
     return {users};
   }
 
-  // overriding post
-  post(reqInfo: RequestInfo) {
-    console.log(reqInfo);
-    if (reqInfo.id === 'signup') {
-      reqInfo.id = '';
-      console.log('from signup');
-    } else if ( reqInfo.id === 'login') {
-      reqInfo.id = '';
-      console.log('from login');
-// response
-return reqInfo.utils.createResponse$(() => {
-      let body = reqInfo.req.body;
-      let usr = reqInfo.collection.filter(user => {
-          return user.email === body.email && user.password === body.password ;
-        }
-      );
-
-      let resBody = {};
-      const dataEncapsulation = reqInfo.utils.getConfig().dataEncapsulation;
-
-      if (usr.length) {
-        let cuser = usr[0];
-        resBody = {id : cuser.id,
-           firstName: cuser.firstName,
-           lastName: cuser.lastName,
-           email: cuser.email,
-           token: 'this is a not an original one'
-        };
-      }
-
-      const options: ResponseOptions = resBody ?
-      {
-        body: dataEncapsulation ? { resBody } : resBody,
-        status: 200
-      } :
-      {
-        body: { error: `'User' with email='${resBody.email}' not found` },
-        status: 404
-      };
-
-      options.statusText = options.status === 200 ? 'OK' : 'Not Found' ;
-      options.headers = reqInfo.headers;
-      options.url = reqInfo.url;
-      return options;
-
-    });
-  }
+getToken(user) {
+  return 'this is a token';
 }
+
+
+  post(reqInfo: RequestInfo) {
+
+    if (reqInfo.id === 'login') {
+      console.log('from login');
+      return reqInfo.utils.createResponse$(() => {
+        const dataEncapsulation = reqInfo.utils.getConfig().dataEncapsulation;
+        const users = reqInfo.collection.find(user => {
+          return reqInfo.req['body'].email === user.email && reqInfo.req['body'].password === user.password ;
+        });
+
+        let responseBody = {};
+
+        if (users) {
+          responseBody = {
+            id: users.id,
+            firstName: users.firstName,
+            lastName: users.lastName,
+            email: users.email,
+            token: this.getToken(users)
+          };
+        }
+
+        const options: ResponseOptions = responseBody ?
+        {
+          body: dataEncapsulation ? { responseBody } : responseBody,
+          status: 200
+        } :
+        {
+          body: { error: `'User' with email='${reqInfo.req['body'].email}' not found` },
+          status: 404
+        };
+
+        options.statusText = options.status === 200 ? 'ok' : 'Not Found' ;
+        options.headers = reqInfo.headers;
+        options.url = reqInfo.url;
+        return options;
+
+
+      });
+
+
+    } else if (reqInfo.id === 'signup') {
+      reqInfo.id = null;
+      console.log(' from signup');
+    }
+  }
 
 }

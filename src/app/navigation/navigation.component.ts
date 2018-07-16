@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 
@@ -18,8 +19,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
     this.activetab = this.location.path();
     console.log(`from ${this.activetab}`);
-    this.isloggedIn = this.auth.isLogged();
-  }
+    }
 
   getActiveTab(tabname: string) {
     this.activetab = tabname;
@@ -27,8 +27,7 @@ export class NavigationComponent implements OnInit {
   }
 
   logout() {
-   this.auth.logout();
-   this.isloggedIn = false;
+    this.auth.logout();
   }
 
 }

@@ -1,9 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 
 import { AppComponent } from './app.component';
@@ -26,8 +22,14 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PagerService } from './pager.service';
 import { LoginComponent } from './login/login.component';
-import { ContactusComponent } from './contactus/contactus.component';
 import { SignupComponent } from './signup/signup.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 
 
 
@@ -50,18 +52,21 @@ import { SignupComponent } from './signup/signup.component';
     NotfoundComponent,
     PaginationComponent,
     LoginComponent,
-    ContactusComponent,
     SignupComponent,
-
+    ContactusComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+
+// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+// and returns simulated server responses.
+// Remove it when a real server is ready to receive requests.
+HttpClientInMemoryWebApiModule.forRoot(
+  InMemoryDataService, { dataEncapsulation: false }
+)
   ],
   providers: [ConfigService, PagerService],
   bootstrap: [AppComponent]

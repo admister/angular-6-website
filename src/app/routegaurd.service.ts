@@ -4,18 +4,16 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 @Injectable({
   providedIn: 'root'
 })
-export class GaurdService implements CanActivate {
+export class RoutegaurdService implements CanActivate {
 
-  constructor(private router: Router) { }
-
+  constructor( private router: Router) { }
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if ( localStorage.getItem('currentUser')) {
+    if (localStorage.getItem('currentUser')){
       // logged in
       return true;
     }
     this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     return false;
   }
-
 }

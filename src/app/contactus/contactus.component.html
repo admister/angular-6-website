@@ -1,40 +1,41 @@
 <section id="pricing" class="secondary-color text-center scrollto clearfix ">
     <div class="row clearfix">
-
+  
       <div class="container">
-          <div class="center-form panel">
-              <div class="panel-body">
-                <h4 class="text-center"><i class="ion-edit"></i> Contact Us</h4>
-    
-                <form [formGroup]="contactusForm" (ngSubmit)="sendMessage(contactusForm.value)">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg form-names" formControlName="firstName" name="lastname" placeholder="First name">
-                        <input type="text" class="form-control input-lg form-names" formControlName="lastName" name="lastname" placeholder="Last Name">
-                        <span class="ion-person form-control-icon"></span>                                          
-                      </div>                          
-
-                  <div class="form-group">
-                    <input type="text" class="form-control input-lg" formControlName="email" name="email" placeholder="Email">
-                    <span class="ion-at form-control-icon"></span>
-                  </div>
-                  <div class="form-group">
-                    <textarea rows="10" cols="100" class="form-control input-lg" formControlName="password" name="password" placeholder="Password">
-
-                    </textarea>
-                    <span class="ion-edit form-control-icon"></span>
-                  </div>
-    
-                  <button type="submit" [class.disabled]="!contactusForm.valid" class="btn btn-block btn-success">Send</button>
-                  <br/>
-    
-                  <p class="text-center">
-                    <small> Leave us a message and we will contact you!<a routerLink="/home"> Home</a></small> 
-                  </p>
-    
-                </form>
-
+  
+        <div class="center-form panel">
+          <div class="panel-body">
+          <h4 class="text-center"><i class="ion-email"></i> Sign up</h4>
+  
+          <form [formGroup]="contactusForm" (ngSubmit)="sendMessage(contactusForm.value)">
+            <div class="form-group">
+                <input type="text" class="form-control form-names input-lg" formControlName="firstName" name="firstName" placeholder="First Name">
+                <input type="text" class="form-control form-names input-lg" formControlName="lastName" name="lastName" placeholder="Last name">
+                  <span class="ion-person form-control-icon"></span> 
+              </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" formControlName="email" name="email" placeholder="Email">
+              <span class="ion-at form-control-icon"></span> 
             </div>
+            <div class="form-group">
+                <textarea rows="10" cols="20" class="form-control input-lg" formControlName="message" name="message" placeholder="message"></textarea>
+                <span class="ion-edit form-control-icon"></span> 
+            </div>
+  
+            <button type="submit" class="btn btn-block btn-success"> Send Message</button>
+  
+            <p class="text-center">
+              <small>Continue here  <a routerLink="/home"> Home</a></small>
+  
+            </p>
+  
+          </form>
+  
         </div>
+        </div>
+  
       </div>
+  
     </div>
-</section>
+  <section>
+  
