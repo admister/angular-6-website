@@ -1,0 +1,7 @@
+
+  <ul >
+      <li *ngFor="let menuItem of menu">
+          <a routerLink="{{menuItem.link}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.title}}</a>
+      </li>
+  </ul>
+
