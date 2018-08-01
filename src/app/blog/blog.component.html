@@ -5,6 +5,7 @@
             <div class="section-heading">
                 <h3>{{blog.tagline}}</h3>
                 <h2 class="section-title">{{blog.title | uppercase}}</h2>
+                <a routerLink="/article-create" class="button" id="add-button"><i class="ion ion-plus"></i></a>
             </div>
             <div *ngFor="let post of pages" class="post-block col-3 wow fadeInUp" data-wow-delay="0.4s">
               <app-post [post]="post"></app-post>

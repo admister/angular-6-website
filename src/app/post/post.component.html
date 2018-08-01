@@ -6,8 +6,9 @@
             <img src="../../assets/images/gallery-images/{{post.image}}">
         </div>
         <ul>
-          {{post.excert}}
+        <div markdown [data]="post.excert" id="preview"> </div>      
         </ul>
-        <a routerLink="/article/{{post.id}}" class="">Read More..</a>
+        <a routerLink="/article/{{post.id}}" class="button"><i class="ion ion-heart"></i></a>
+        <a routerLink="/article-edit/{{post.id}}" class="button"><i class="ion ion-edit"></i></a>
     </div>
 <!--End Post Block--> 

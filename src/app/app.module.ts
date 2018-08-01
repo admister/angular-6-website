@@ -29,6 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { ArticleEditComponent } from './article-edit/article-edit.component';
+import { ArticleCreateComponent } from './article-create/article-create.component';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 
 
@@ -54,12 +57,29 @@ import { InMemoryDataService } from './in-memory-data.service';
     LoginComponent,
     SignupComponent,
     ContactusComponent,
+    ArticleEditComponent,
+    ArticleCreateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MarkdownModule.forRoot({
+      loader: HttpClientModule, // optional, only if you use [src] attribute
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
 
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
