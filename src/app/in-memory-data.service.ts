@@ -9,8 +9,21 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
     const users = [
-      { id: 11, firtName: 'rahul', lastName: 'gupta', email: 'test123@gmail.com', password: 'welcome' },
-      { id: 12, firstName: 'rohan', lastName: 'gupta', email: 'test345@gmail.com', password: 'welcome' }
+      { id: 11, firtName: 'rahul', lastName: 'gupta', email: 'test123@gmail.com', password: 'welcome',
+    bio: 'this is my bio', role: 'admin', image: 'user-1.jpg' },
+      { id: 12, firstName: 'rohan', lastName: 'gupta', email: 'test345@gmail.com', password: 'welcome',
+      bio: 'i am a subscriber', role: 'subscriber', image: 'user-2.jpg' }
+    ];
+
+    const menu = [
+      {id: 1, title: 'Home', link: '/home'},
+      {id: 2, title: 'About', link: '/about'},
+      {id: 3, title: 'Services', link: '/services'},
+      {id: 4, title: 'Gallery', link: '/gallery'},
+      {id: 5, title: 'Testimonials', link: '/testimonial'},
+      {id: 6, title: 'Clients', link: '/clients'},
+      {id: 7, title: 'Pricing', link: '/pricing'},
+      {id: 8, title: 'Blog', link: '/blog'},
     ];
 
     const posts = [
@@ -37,7 +50,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 11, title: 'The eleven Article',
       author: 'AD', image: 'gallery-image-6.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
   ];
-    return {users, posts};
+    return {users, posts, menu};
   }
 
 getToken(user) {
@@ -98,6 +111,8 @@ getArticles(reqInfo: RequestInfo) {
             id: users.id,
             firstName: users.firstName,
             lastName: users.lastName,
+            bio: users.bio,
+            image: users.image,
             email: users.email,
             token: this.getToken(users)
           };

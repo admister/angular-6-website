@@ -18,6 +18,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'clients', component: ClientsComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'blog', component: BlogComponent, canActivate: [RoutegaurdService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [RoutegaurdService] },
   { path: 'article/:id', component: ArticleComponent },
   { path: 'article-edit/:id', component: ArticleEditComponent, canActivate: [RoutegaurdService]  },
   { path: 'article-create', component: ArticleCreateComponent, canActivate: [RoutegaurdService]  },

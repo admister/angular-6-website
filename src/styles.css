@@ -604,7 +604,7 @@ nav#nav-mobile {
 }
 
 nav#nav-mobile ul {
-    display: none;
+    display: block;
     list-style-type: none;
     position: absolute;
     left: 0;

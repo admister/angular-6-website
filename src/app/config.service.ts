@@ -46,6 +46,23 @@ export class ConfigService {
     );
   }
 
+  getsettings(database: string, id?: any): Observable<any[]> {
+    let uid = id || null;
+    let url: string;
+    if (uid !== null) {
+      url = `api/${database}/${id}`;
+    } else {
+      url = `api/${database}`;
+    }
+
+    return this.http.get<any>(url).pipe(
+      tap(
+        setting => console.log(setting)
+      ),
+      catchError(this.handleError( ` get for ${database}`, []))
+    );
+  }
+
   updatePost(formData: NgForm): Observable<Post> {
     return this.http.put<any>(`${this.apiUrl}`, formData, httpOptions).pipe(
       tap(

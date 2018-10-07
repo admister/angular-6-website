@@ -32,6 +32,8 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { NavmenuComponent } from './navmenu/navmenu.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -59,6 +61,8 @@ import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
     ContactusComponent,
     ArticleEditComponent,
     ArticleCreateComponent,
+    NavmenuComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

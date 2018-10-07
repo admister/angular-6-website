@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Observable, of } from 'rxjs';
 import { RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import * as $ from 'jquery';
+import { ConfigService } from '../config.service';
 
 
 @Component({
@@ -12,61 +14,47 @@ import * as $ from 'jquery';
 })
 export class NavigationComponent implements OnInit {
 
-  // activetab: string;
+  menu: any;
   isloggedIn: boolean;
+  menuOpen: boolean;
+  database = 'menu';
+  isLoggedIn: boolean;
 
-  constructor(private location: Location, private auth: AuthenticationService) { }
+
+  constructor(private location: Location,
+    private auth: AuthenticationService,
+    private config: ConfigService
+  ) { }
 
   ngOnInit() {
-    // this.activetab = this.location.path();
-    // console.log(`from ${this.activetab}`);
 
-    (<any>$)(document).ready(function () {
-
-            /*Responsive Navigation*/
-        (<any>$)('#nav-mobile').html((<any>$)('#nav-main').html());
-        (<any>$)('#nav-trigger span').on('click', function() {
-          if ((<any>$)('nav#nav-mobile ul').hasClass('expanded')) {
-            (<any>$)('nav#nav-mobile ul.expanded').removeClass('expanded').slideUp(250);
-            (<any>$)(this).removeClass('open');
-          } else {
-            (<any>$)('nav#nav-mobile ul').addClass('expanded').slideDown(250);
-            (<any>$)(this).addClass('open');
-          }
-        });
-
-        (<any>$)('#nav-mobile').html((<any>$)('#nav-main').html());
-        (<any>$)('#nav-mobile ul a').on('click', function() {
-          if ((<any>$)('nav#nav-mobile ul').hasClass('expanded')) {
-            (<any>$)('nav#nav-mobile ul.expanded').removeClass('expanded').slideUp(250);
-            (<any>$)('#nav-trigger span').removeClass('open');
-          }
-
-        });
-
-      /* Sticky Navigation */
-        // if (!!(<any>$).prototype.stickyNavbar) {
-        //   (<any>$)('#header').stickyNavbar();
-        // }
-
-        // (<any>$)('#content').waypoint(function (direction) {
-        //   if (direction === 'down') {
-        //     (<any>$)('#header').addClass('nav-solid fadeInDown');
-        //   } else {
-        //     (<any>$)('#header').removeClass('nav-solid fadeInDown');
-        //   }
-        // });
-
-    });
+    this.menuOpen = false;
+    this.getMenu();
 
     }
-  // getActiveTab(tabname: string) {
-  //   this.activetab = tabname;
-  //   console.log(tabname);
-  // }
+
+
+
 
   logout() {
     this.auth.logout();
   }
+
+  toggleMenu(status: boolean) {
+    this.menuOpen = status;
+  }
+
+  getMenu() {
+    this.config.getsettings(this.database).subscribe(
+
+      setting => {
+        this.menu = setting;
+        console.log(setting);
+      }
+
+    );
+  }
+
+
 
 }

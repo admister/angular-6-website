@@ -1,0 +1,41 @@
+       <!--Pricing Tables-->
+       <section id="pricing" class="secondary-color text-center scrollto clearfix ">
+        <div class="row clearfix">
+
+            <div class="col-3">
+
+            <!--User Testimonial-->
+            <blockquote class="testimonial classic" *ngIf="user">
+                <img src="assets/images/user-images/{{user.image}}" alt="User"/>
+                <q>{{user.bio}}</q>
+                <footer></footer>
+            </blockquote>
+            <!-- End of Testimonial-->
+
+
+            </div>
+
+            <div class="col-2-3">
+              
+              
+            <!--Pricing Block-->
+            <div class="pricing-block wow fadeInUp" data-wow-delay="0.4s" >
+                <div class="pricing-block-content" *ngIf="user">
+                    <h3>{{user.firstName}} {{user.lastName}}</h3>
+                    <p class="pricing-sub">{{user.email}}</p>
+                    <div class="pricing">
+
+                        <p>{{user.bio}}</p>
+                    </div>
+
+                    <a (click)="logout()" class="button">Logout</a>
+                </div>
+            </div>
+            <!--End Pricing Block--> 
+
+            </div>
+
+
+        </div>
+    </section>
+    <!--End of Pricing Tables-->

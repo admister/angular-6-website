@@ -1,22 +1,20 @@
-import { Component, OnInit , Input, ViewEncapsulation} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navmenu',
   templateUrl: './navmenu.component.html',
-  styleUrls: ['./navmenu.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./navmenu.component.css']
 })
-export class NavmenuComponent implements OnInit {
-  @Input() menu;
-  @Input() open;
-  // @Output() currentUrl: EventEmitter<any> = new EventEmitter<any>();
+export class NavmenuComponent {
 
-  constructor() {
+@Input() menu: any;
+@Input() menuOpen: boolean;
+@Output() menuStatus: EventEmitter<any> = new EventEmitter<any>();
 
-   }
+  constructor() { }
 
-  ngOnInit() {
-
+  toggleMenu() {
+    this.menuStatus.emit(!this.menuOpen);
   }
 
 }
