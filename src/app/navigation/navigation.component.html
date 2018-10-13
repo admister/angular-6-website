@@ -17,15 +17,17 @@
                 <!--End of Logo-->                
 
                 <aside>
+                        <app-user-profile-icon [profileImage]="profileImage"></app-user-profile-icon>
                     <app-social></app-social>
-
+                    
                 </aside>
 
 
                       <!--Main Navigation-->
-            <nav id="nav-main">
-                <app-navmenu [menu]="menu" [menuOpen]="true"></app-navmenu>
-            </nav>
+                <nav id="nav-main">
+                    <app-navmenu [menu]="menu" [menuOpen]="true"></app-navmenu>
+                    
+                </nav>
         <!--End of Main Navigation-->
 
                 <div id="nav-trigger"><span [class.open]="menuOpen == true" (click)="toggleMenu(!menuOpen)"></span></div>

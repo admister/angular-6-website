@@ -33,7 +33,7 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { NavmenuComponent } from './navmenu/navmenu.component';
-import { ProfileComponent } from './profile/profile.component';
+import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
 
 
 
@@ -62,13 +62,13 @@ import { ProfileComponent } from './profile/profile.component';
     ArticleEditComponent,
     ArticleCreateComponent,
     NavmenuComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    UserDashboardModule,
     MarkdownModule.forRoot({
       loader: HttpClientModule, // optional, only if you use [src] attribute
       markedOptions: {

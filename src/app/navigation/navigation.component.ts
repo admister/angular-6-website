@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Location } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { RouterLinkActive } from '@angular/router';
@@ -12,14 +12,14 @@ import { ConfigService } from '../config.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, AfterContentChecked {
 
   menu: any;
-  isloggedIn: boolean;
+  isLoggedIn: boolean;
   menuOpen: boolean;
   database = 'menu';
-  isLoggedIn: boolean;
-
+  profileImage: string;
+  user: any;
 
   constructor(private location: Location,
     private auth: AuthenticationService,
@@ -30,11 +30,18 @@ export class NavigationComponent implements OnInit {
 
     this.menuOpen = false;
     this.getMenu();
+    this.isLoggedIn = this.auth.isloggedIn();
+    this.getUser();
 
     }
+  ngAfterContentChecked() {
+    of(this.auth.isloggedIn()).subscribe(
+      () => {
+        this.getUser();
+      }
+    );
 
-
-
+  }
 
   logout() {
     this.auth.logout();
@@ -53,6 +60,17 @@ export class NavigationComponent implements OnInit {
       }
 
     );
+  }
+
+  getUser() {
+    this.user = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (this.user) {
+      this.profileImage = this.user.image;
+    } else {
+      this.profileImage = 'default-user.jpg';
+    }
+
   }
 
 

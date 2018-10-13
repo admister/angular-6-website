@@ -9,7 +9,7 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
     const users = [
-      { id: 11, firtName: 'rahul', lastName: 'gupta', email: 'test123@gmail.com', password: 'welcome',
+      { id: 11, firstName: 'rahul', lastName: 'gupta', email: 'test123@gmail.com', password: 'welcome',
     bio: 'this is my bio', role: 'admin', image: 'user-1.jpg' },
       { id: 12, firstName: 'rohan', lastName: 'gupta', email: 'test345@gmail.com', password: 'welcome',
       bio: 'i am a subscriber', role: 'subscriber', image: 'user-2.jpg' }
