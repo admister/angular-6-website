@@ -1,0 +1,23 @@
+
+  <div class="row clearfix">
+    <div class="container">
+      <div class="center-form panel">
+        <div class="panel-body">
+          <a (click) = cancel() style="cursor:hand;"> <i class="ion-close"></i></a>
+        <form [formGroup]="subscribeForm" (ngSubmit)="subscribe(subscribeForm.value)">
+          <div class="form-group">
+            <input type="text" class="form-control input-lg" formControlName="email" name="email" placeholder="Email">
+            <span class="ion-at form-control-icon"></span> 
+          </div>
+          <p *ngIf="!sending">
+          <button type="submit" class="btn btn-block btn-success"> Subscribe</button>
+        </p>
+        </form>
+
+      </div>
+      </div>
+
+    </div>
+
+  </div>
+
