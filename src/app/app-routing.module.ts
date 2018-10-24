@@ -19,6 +19,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 
 
@@ -27,13 +28,14 @@ const routes: Routes = [
   { path: 'home', component: HeaderComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'contactus', component: ContactusComponent },
+  { path: 'contactus', component: ContactusComponent, outlet: 'popup'  },
   { path: 'about', component: IntroComponent },
   { path: 'services', component: ContentComponent },
   { path: 'testimonials', component: TestimonialComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'clients', component: ClientsComponent },
   { path: 'pricing', component: PricingComponent },
+  { path: 'subscribe', component: SubscribeComponent, outlet: 'popup' },
   { path: 'dashboard', loadChildren: () => UserDashboardModule, canActivate: [RoutegaurdService]   },
   { path: 'blog', component: BlogComponent, canActivate: [RoutegaurdService] },
   { path: 'article/:id', component: ArticleComponent },
