@@ -34,6 +34,7 @@ import { ArticleCreateComponent } from './article-create/article-create.componen
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 
 
@@ -62,6 +63,7 @@ import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
     ArticleEditComponent,
     ArticleCreateComponent,
     NavmenuComponent,
+    SubscribeComponent,
   ],
   imports: [
     BrowserModule,
