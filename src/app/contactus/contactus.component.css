@@ -1,3 +1,4 @@
+:host{ position: fixed; bottom: 10px; right: 10px;}
 .container{
     margin-right: auto;
     margin-left: auto;

@@ -1,11 +1,12 @@
-<section id="pricing" class="secondary-color text-center scrollto clearfix ">
+
     <div class="row clearfix">
   
       <div class="container">
   
         <div class="center-form panel">
           <div class="panel-body">
-          <h4 class="text-center"><i class="ion-email"></i> Sign up</h4>
+              <a (click)= cancel() ><i class="ion-close"></i></a>
+          <h4 class="text-center"><i class="ion-email"></i> Contact Us</h4>
   
           <form [formGroup]="contactusForm" (ngSubmit)="sendMessage(contactusForm.value)">
             <div class="form-group">
@@ -22,13 +23,8 @@
                 <span class="ion-edit form-control-icon"></span> 
             </div>
   
-            <button type="submit" class="btn btn-block btn-success"> Send Message</button>
-  
-            <p class="text-center">
-              <small>Continue here  <a routerLink="/home"> Home</a></small>
-  
-            </p>
-  
+            <button *ngIf="!sending" type="submit" class="btn btn-block btn-success"> Send Message</button>
+     
           </form>
   
         </div>
@@ -37,5 +33,3 @@
       </div>
   
     </div>
-  <section>
-  
