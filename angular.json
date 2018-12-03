@@ -64,7 +64,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "website:build"
+            "browserTarget": "website:build",
+            "ssl": true,
+            "sslCert": "./ssl/server.crt",
+            "sslKey": "./ssl/server.key"
           },
           "configurations": {
             "production": {
