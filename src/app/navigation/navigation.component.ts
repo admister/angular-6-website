@@ -52,7 +52,7 @@ export class NavigationComponent implements OnInit, AfterContentChecked {
   }
 
   getMenu() {
-    this.config.getsettings(this.database).subscribe(
+    this.config.getSettings(this.database).subscribe(
 
       setting => {
         this.menu = setting;

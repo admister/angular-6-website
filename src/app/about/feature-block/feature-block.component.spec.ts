@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentComponent } from './content.component';
+import { FeatureBlockComponent } from './feature-block.component';
 
-describe('ContentComponent', () => {
-  let component: ContentComponent;
-  let fixture: ComponentFixture<ContentComponent>;
+describe('FeatureBlockComponent', () => {
+  let component: FeatureBlockComponent;
+  let fixture: ComponentFixture<FeatureBlockComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentComponent ]
+      declarations: [ FeatureBlockComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentComponent);
+    fixture = TestBed.createComponent(FeatureBlockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

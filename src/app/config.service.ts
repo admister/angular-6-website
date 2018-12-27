@@ -46,7 +46,7 @@ export class ConfigService {
     );
   }
 
-  getsettings(database: string, id?: any): Observable<any[]> {
+  getSettings(database: string, id?: any): Observable<any[]> {
     let uid = id || null;
     let url: string;
     if (uid !== null) {

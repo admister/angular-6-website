@@ -1,0 +1,23 @@
+  <!--Introduction-->
+  <section id="gallery" class="introduction scrollto text-center" *ngIf="gallery">
+
+  <div class="row clearfix">
+
+    
+        <div class="section-heading">
+              <h3>{{gallery.tagline}}</h3>
+              <h2 class="section-title">{{gallery.title}}</h2>
+              <p class="section-subtitle">{{gallery.description}}</p>
+          </div>
+
+        <aside id="gallery" class="row text-center scrollto clearfix" data-featherlight-gallery
+          data-featherlight-filter="a">
+          <div *ngFor="let image of images">
+            <app-image-block [image]="image"></app-image-block>
+          </div>
+        </aside>
+
+</div>
+
+</section>
+<!--End of Introduction-->

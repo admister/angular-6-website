@@ -7,11 +7,10 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SocialComponent } from './social/social.component';
 import { PricingComponent } from './pricing/pricing.component';
-import { IntroComponent } from './intro/intro.component';
-import { HeaderComponent } from './header/header.component';
-import { GalleryComponent } from './gallery/gallery.component';
+
+
 import { FooterComponent } from './footer/footer.component';
-import { ContentComponent } from './content/content.component';
+
 import { ClientsComponent } from './clients/clients.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ConfigService } from './config.service';
@@ -35,6 +34,10 @@ import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
+import { ServicesModule } from './services/services.module';
+import { GalleryModule } from './gallery/gallery.module';
 
 
 
@@ -46,11 +49,10 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     TestimonialComponent,
     SocialComponent,
     PricingComponent,
-    IntroComponent,
-    HeaderComponent,
-    GalleryComponent,
+
+
     FooterComponent,
-    ContentComponent,
+
     ClientsComponent,
     BlogComponent,
     PostComponent,
@@ -70,6 +72,10 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HomeModule,
+    AboutModule,
+    ServicesModule,
+    GalleryModule,
     UserDashboardModule,
     MarkdownModule.forRoot({
       loader: HttpClientModule, // optional, only if you use [src] attribute

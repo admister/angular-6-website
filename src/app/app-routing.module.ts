@@ -4,10 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
 import { PricingComponent } from './pricing/pricing.component';
-import { IntroComponent } from './intro/intro.component';
-import { HeaderComponent } from './header/header.component';
+
+
 import { GalleryComponent } from './gallery/gallery.component';
-import { ContentComponent } from './content/content.component';
 import { ClientsComponent } from './clients/clients.component';
 import { BlogComponent } from './blog/blog.component';
 import { ArticleComponent } from './article/article.component';
@@ -20,19 +19,23 @@ import { ArticleEditComponent } from './article-edit/article-edit.component';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
+import { ServicesModule } from './services/services.module';
+import { GalleryModule } from './gallery/gallery.module';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HeaderComponent },
+  { path: 'home', loadChildren: () => HomeModule },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'contactus', component: ContactusComponent, outlet: 'popup'  },
-  { path: 'about', component: IntroComponent },
-  { path: 'services', component: ContentComponent },
+  { path: 'about', loadChildren: () => AboutModule },
+  { path: 'services', loadChildren: () => ServicesModule },
   { path: 'testimonials', component: TestimonialComponent },
-  { path: 'gallery', component: GalleryComponent },
+  { path: 'gallery', loadChildren: () => GalleryModule },
   { path: 'clients', component: ClientsComponent },
   { path: 'pricing', component: PricingComponent },
   { path: 'subscribe', component: SubscribeComponent, outlet: 'popup' },
