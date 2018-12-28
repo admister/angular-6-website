@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TestimonialComponent } from './testimonial/testimonial.component';
-
 import { PricingComponent } from './pricing/pricing.component';
-
-
-import { GalleryComponent } from './gallery/gallery.component';
 import { ClientsComponent } from './clients/clients.component';
 import { BlogComponent } from './blog/blog.component';
 import { ArticleComponent } from './article/article.component';
