@@ -1,0 +1,19 @@
+       <!--Pricing Tables-->
+       <section id="pricing" class="secondary-color text-center scrollto clearfix ">
+          <div class="row clearfix">
+  
+              <div class="section-heading" *ngIf="pricing">
+                  <h3>{{pricing.tagline}}</h3>
+                  <h2 class="section-title">{{pricing.title}}</h2>
+              </div>
+  
+              <!--Pricing Block-->
+              <div *ngFor="let plan of plans">
+                <app-pricing-block [plan]="plan"></app-pricing-block>
+
+              </div>
+              <!--End Pricing Block--> 
+  
+          </div>
+      </section>
+      <!--End of Pricing Tables-->

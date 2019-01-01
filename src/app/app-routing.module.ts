@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { TestimonialComponent } from './testimonial/testimonial.component';
-import { PricingComponent } from './pricing/pricing.component';
-import { ClientsComponent } from './clients/clients.component';
 import { BlogComponent } from './blog/blog.component';
 import { ArticleComponent } from './article/article.component';
-import { NotfoundComponent } from './notfound/notfound.component';
 import { RoutegaurdService } from './routegaurd.service';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -19,6 +15,10 @@ import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { ServicesModule } from './services/services.module';
 import { GalleryModule } from './gallery/gallery.module';
+import { NotfoundModule } from './notfound/notfound.module';
+import { ClientsModule } from './clients/clients.module';
+import { TestimonialModule } from './testimonial/testimonial.module';
+import { PricingModule } from './pricing/pricing.module';
 
 
 
@@ -30,17 +30,17 @@ const routes: Routes = [
   { path: 'contactus', component: ContactusComponent, outlet: 'popup'  },
   { path: 'about', loadChildren: () => AboutModule },
   { path: 'services', loadChildren: () => ServicesModule },
-  { path: 'testimonials', component: TestimonialComponent },
+  { path: 'testimonials', loadChildren: () => TestimonialModule },
   { path: 'gallery', loadChildren: () => GalleryModule },
-  { path: 'clients', component: ClientsComponent },
-  { path: 'pricing', component: PricingComponent },
+  { path: 'clients', loadChildren: () => ClientsModule },
+  { path: 'pricing', loadChildren: () => PricingModule },
   { path: 'subscribe', component: SubscribeComponent, outlet: 'popup' },
   { path: 'dashboard', loadChildren: () => UserDashboardModule, canActivate: [RoutegaurdService]   },
   { path: 'blog', component: BlogComponent, canActivate: [RoutegaurdService] },
   { path: 'article/:id', component: ArticleComponent },
   { path: 'article-edit/:id', component: ArticleEditComponent, canActivate: [RoutegaurdService]  },
   { path: 'article-create', component: ArticleCreateComponent, canActivate: [RoutegaurdService]  },
-  { path: '404', component: NotfoundComponent },
+  { path: '404', loadChildren: () => NotfoundModule },
   { path: '**', redirectTo: '/404' },
 ];
 

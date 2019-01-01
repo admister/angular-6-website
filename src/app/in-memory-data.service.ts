@@ -119,7 +119,60 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 11, title: 'The eleven Article',
       author: 'AD', image: 'gallery-image-6.jpg', publishdate: '2018-06-19T07:22Z', excert: 'This is the summary of the article...'},
   ];
-    return {users, posts, menu, pages, features, images};
+
+  const companies = [
+    {id: 1 , name: 'Tree', weblink: 'company-logo1.png', logo: 'company-logo1.png'},
+    {id: 2 , name: 'Fingerprint', weblink: 'company-logo2.png', logo: 'company-logo2.png'},
+    {id: 3 , name: 'The Man', weblink: 'company-logo3.png', logo: 'company-logo3.png'},
+    {id: 4 , name: 'Mustache', weblink: 'company-logo4.png', logo: 'company-logo4.png'},
+    {id: 5 , name: 'Goat', weblink: 'company-logo5.png', logo: 'company-logo5.png'},
+    {id: 6 , name: 'Justice', weblink: 'company-logo6.png', logo: 'company-logo6.png'},
+    {id: 7 , name: 'Ball', weblink: 'company-logo7.png', logo: 'company-logo7.png'},
+    {id: 8 , name: 'Cold', weblink: 'company-logo8.png', logo: 'company-logo8.png'},
+    {id: 9 , name: 'Cold', weblink: 'company-logo9.png', logo: 'company-logo9.png'},
+];
+const feedbacks = [
+  {id: 1 , name: 'John Doe', userimage: 'user-1.jpg',
+  comments: 'This compamny doing excellent Job',
+  company: 'ABC'},
+  {id: 2 , name: 'Roslyn Doe', userimage: 'user-2.jpg',
+  comments: 'People seem to love the work they have done',
+  company: 'XYZ'},
+  {id: 3 , name: 'Thomas Doe', userimage: 'user-3.jpg',
+  comments: 'This work is great, i reall loved working with them',
+  company: 'PQR'},
+];
+
+const plans = [
+  {id: 1, title: 'PERSONAL', subtitle: 'The standard version',
+  description: 'Best Plan to buy', price: '19', currency: '₹',
+  downloads: '5 Downloads', extensions: '2 Extensions',
+  tutorials: 'Tutorials', support: 'Forum Support', updates: '1 year free updates',
+  buttontext: 'Buy Now', buttonlink: '#', featured: false
+  },
+  {id: 2, title: 'STUDENT', subtitle: 'Most popular choice',
+  description: 'Best Plan for students', price: '29', currency: '₹',
+  downloads: '15 Downloads', extensions: '5 Extensions',
+  tutorials: 'Tutorials with files', support: 'Forum Support', updates: '2 year free updates',
+  buttontext: 'Buy Now', buttonlink: '#', featured: true
+  },
+  {id: 3, title: 'BUSINESS', subtitle: 'For the whole team',
+  description: 'Best plan for business', price: '49', currency: '₹',
+  downloads: 'Unlimited Downloads', extensions: 'Unlimited Downloads',
+  tutorials: 'HD Video Tutorials', support: 'Chat Support', updates: 'Lifetime free updates',
+  buttontext: 'Buy Now', buttonlink: '#', featured: false
+  }
+];
+
+const websites = [
+  {id: 1, title: 'Facebook', target: '_blank', username: 'jagmohan', icon: 'facebook'},
+  {id: 2, title: 'Google+', target: '_blank', username: '+jagmohan', icon: 'google-plus'},
+  {id: 3, title: 'Twitter', target: '_blank', username: 'jagmohan', icon: 'twitter'},
+  {id: 4, title: 'Instagram', target: '_blank', username: 'jagmohan', icon: 'instagram'},
+  {id: 5, title: 'Behance', target: '_blank', username: 'jagmohan', icon: 'behance'},
+];
+
+    return {users, posts, menu, pages, features, images, companies, feedbacks, plans, websites};
   }
 
 getToken(user) {

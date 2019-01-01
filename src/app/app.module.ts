@@ -4,20 +4,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SocialComponent } from './social/social.component';
-import { PricingComponent } from './pricing/pricing.component';
 
 
 import { FooterComponent } from './footer/footer.component';
 
-import { ClientsComponent } from './clients/clients.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ConfigService } from './config.service';
 import { BlogComponent } from './blog/blog.component';
 import { PostComponent } from './post/post.component';
 import { ArticleComponent } from './article/article.component';
-import { NotfoundComponent } from './notfound/notfound.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PagerService } from './pager.service';
 import { LoginComponent } from './login/login.component';
@@ -38,6 +34,10 @@ import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { ServicesModule } from './services/services.module';
 import { GalleryModule } from './gallery/gallery.module';
+import { NotfoundModule } from './notfound/notfound.module';
+import { ClientsModule } from './clients/clients.module';
+import { TestimonialModule } from './testimonial/testimonial.module';
+import { PricingModule } from './pricing/pricing.module';
 
 
 
@@ -46,18 +46,11 @@ import { GalleryModule } from './gallery/gallery.module';
   declarations: [
     AppComponent,
     NavigationComponent,
-    TestimonialComponent,
     SocialComponent,
-    PricingComponent,
-
-
     FooterComponent,
-
-    ClientsComponent,
     BlogComponent,
     PostComponent,
     ArticleComponent,
-    NotfoundComponent,
     PaginationComponent,
     LoginComponent,
     SignupComponent,
@@ -77,6 +70,10 @@ import { GalleryModule } from './gallery/gallery.module';
     ServicesModule,
     GalleryModule,
     UserDashboardModule,
+    NotfoundModule,
+    ClientsModule,
+    TestimonialModule,
+    PricingModule,
     MarkdownModule.forRoot({
       loader: HttpClientModule, // optional, only if you use [src] attribute
       markedOptions: {

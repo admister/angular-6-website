@@ -1,0 +1,28 @@
+       <!--Clients-->
+       <section id="clients" class="scrollto clearfix">
+          <div class="row clearfix">
+  
+              <div class="col-3" *ngIf="clients">
+  
+                  <div class="section-heading">
+                      <h3>{{clients.tagline}}</h3>
+                      <h2 class="section-title">{{clients.title}}</h2>
+                      <p class="section-subtitle">{{clients.description}}</p>
+                  </div>
+  
+              </div>
+  
+              <div class="col-2-3">
+  
+                  
+                <div *ngFor= "let company of companies">
+
+                    <app-companies-block [company]="company"></app-companies-block>
+
+                </div>
+  
+              </div>
+  
+          </div>
+      </section>
+      <!--End of Clients-->
