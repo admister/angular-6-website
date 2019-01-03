@@ -51,6 +51,11 @@ export class InMemoryDataService implements InMemoryDbService {
         developer: 'AdMISTER STUDIO',
         developerlink: 'http://admister.in',
       },
+      {id: 'blog',
+        tagline: 'My thoughts',
+        title: 'Thoughts become things',
+        description: 'We are and amazing company',
+      },
       {id: 'header',
         heading: 'AdMister Studios',
         headingtext: 'This website was created using Angular 6',
@@ -165,11 +170,11 @@ const plans = [
 ];
 
 const websites = [
-  {id: 1, title: 'Facebook', target: '_blank', username: 'jagmohan', icon: 'facebook'},
-  {id: 2, title: 'Google+', target: '_blank', username: '+jagmohan', icon: 'google-plus'},
-  {id: 3, title: 'Twitter', target: '_blank', username: 'jagmohan', icon: 'twitter'},
-  {id: 4, title: 'Instagram', target: '_blank', username: 'jagmohan', icon: 'instagram'},
-  {id: 5, title: 'Behance', target: '_blank', username: 'jagmohan', icon: 'behance'},
+  {id: 1, link: 'https://facebook.com/', title: 'Facebook', target: '_blank', username: 'jagmohan', icon: 'facebook'},
+  {id: 2, link: 'https://googleplus.com/', title: 'Google+', target: '_blank', username: '+jagmohan', icon: 'google-plus'},
+  {id: 3, link: 'https://twitter.com/', title: 'Twitter', target: '_blank', username: 'jagmohan', icon: 'twitter'},
+  {id: 4, link: 'https://instagram.com/', title: 'Instagram', target: '_blank', username: 'admister_in', icon: 'instagram'},
+  {id: 5, link: 'https://behance.com/', title: 'Behance', target: '_blank', username: 'jagmohan', icon: 'behance'},
 ];
 
     return {users, posts, menu, pages, features, images, companies, feedbacks, plans, websites};

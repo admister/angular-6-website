@@ -8,15 +8,17 @@ import { ConfigService } from '../config.service';
 })
 export class SocialComponent implements OnInit {
 
-  socialsites = {};
+  socialsites: {id: number, link: string, title: string, target: string, username: string, icon: string}[];
 
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.socialsites = this.getSocialsites();
+    this.getSocialsites();
   }
 
   getSocialsites() {
-  return this.config.getConfig().socialsites;
+  return this.config.getSettings('websites').subscribe(
+    data => this.socialsites = data
+  );
   }
 }

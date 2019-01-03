@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { configuration } from './configuration';
 import { Observable, of } from 'rxjs';
-import { Post } from './post';
+import { Post } from './blog/post';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { PostComponent } from './post/post.component';
+import { PostBlockComponent } from './blog/post-block/post-block.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -72,7 +72,7 @@ export class ConfigService {
     );
   }
 
-  addPost(formData: NgForm): Observable<PostComponent> {
+  addPost(formData: NgForm): Observable<PostBlockComponent> {
     return this.http.post<any>(`${this.apiUrl}`, formData, httpOptions).pipe(
       tap(
         post => console.log(post)

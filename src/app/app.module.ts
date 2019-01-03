@@ -11,21 +11,13 @@ import { FooterComponent } from './footer/footer.component';
 
 import { AppRoutingModule } from './/app-routing.module';
 import { ConfigService } from './config.service';
-import { BlogComponent } from './blog/blog.component';
-import { PostComponent } from './post/post.component';
-import { ArticleComponent } from './article/article.component';
-import { PaginationComponent } from './pagination/pagination.component';
-import { PagerService } from './pager.service';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ContactusComponent } from './contactus/contactus.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { ArticleEditComponent } from './article-edit/article-edit.component';
-import { ArticleCreateComponent } from './article-create/article-create.component';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
@@ -38,6 +30,8 @@ import { NotfoundModule } from './notfound/notfound.module';
 import { ClientsModule } from './clients/clients.module';
 import { TestimonialModule } from './testimonial/testimonial.module';
 import { PricingModule } from './pricing/pricing.module';
+import { BlogModule } from './blog/blog.module';
+import { WebsiteBlockComponent } from './website-block/website-block.component';
 
 
 
@@ -48,17 +42,12 @@ import { PricingModule } from './pricing/pricing.module';
     NavigationComponent,
     SocialComponent,
     FooterComponent,
-    BlogComponent,
-    PostComponent,
-    ArticleComponent,
-    PaginationComponent,
     LoginComponent,
     SignupComponent,
     ContactusComponent,
-    ArticleEditComponent,
-    ArticleCreateComponent,
     NavmenuComponent,
     SubscribeComponent,
+    WebsiteBlockComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,21 +63,7 @@ import { PricingModule } from './pricing/pricing.module';
     ClientsModule,
     TestimonialModule,
     PricingModule,
-    MarkdownModule.forRoot({
-      loader: HttpClientModule, // optional, only if you use [src] attribute
-      markedOptions: {
-        provide: MarkedOptions,
-        useValue: {
-          gfm: true,
-          tables: true,
-          breaks: false,
-          pedantic: false,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false,
-        },
-      },
-    }),
+    BlogModule,
 
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
@@ -97,7 +72,7 @@ HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false }
 )
   ],
-  providers: [ConfigService, PagerService],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
