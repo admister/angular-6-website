@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { configuration } from './configuration';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 import { Post } from './blog/post';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { PostBlockComponent } from './blog/post-block/post-block.component';
+import { environment } from './../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -17,7 +18,8 @@ const httpOptions = {
 export class ConfigService {
 
   config = configuration;
-  apiUrl = 'api/posts';
+  apiUrl = environment.emailUrl;
+  emailUrl = environment.emailUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -36,6 +38,17 @@ export class ConfigService {
   getConfig() {
     return this.config;
   }
+
+  sendMessage(formData: NgForm): Observable<any> {
+    return this.http.post<any>(`${this.emailUrl}`, formData, httpOptions).pipe(
+      tap(
+        message => console.log(message)
+      ),
+      catchError(this.handleError('Sending Message', []))
+    );
+  }
+
+
 
   getPosts(): Observable<Post[]> {
     return this.http.get<any>(this.apiUrl).pipe(
