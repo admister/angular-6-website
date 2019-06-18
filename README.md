@@ -1,4 +1,5 @@
 # Angular 6 website
+Works with both angular 6 and 7, not tested with 8 yet.
 
 # Check out videos series on creating an angular 6 website on the link below on youtube
 
