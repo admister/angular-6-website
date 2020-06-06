@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'api/posts',
+  emailUrl: 'https://localhost/api/contact.php'
 };

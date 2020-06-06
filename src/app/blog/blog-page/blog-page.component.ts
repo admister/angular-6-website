@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../config.service';
-import { Post } from '../Post';
+import { Post } from '../post';
 import { PagerService } from '../pager.service';
 
 @Component({
