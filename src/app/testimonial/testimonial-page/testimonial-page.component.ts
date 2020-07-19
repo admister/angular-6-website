@@ -8,10 +8,11 @@ import { ConfigService } from '../../config.service';
 })
 export class TestimonialPageComponent implements OnInit {
 
-testimonials: {id: string,
-tagline: string,
-title: string,
-description: string,
+testimonials: {id: number,
+  name: string,
+  tagline: string,
+  title: string,
+  description: string
 }[];
 
   feedbacks: {id: number , name: string, userimage: string,
@@ -21,12 +22,12 @@ description: string,
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.getPageData('pages', 'testimonials');
+    this.getPageData('pages', 4);
     this.getBlockData('feedbacks');
 
   }
 
-  getPageData(database: string, id?: string) {
+  getPageData(database: string, id?: number) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.testimonials = data;

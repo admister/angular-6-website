@@ -7,10 +7,11 @@ import { ConfigService } from '../../config.service';
   styleUrls: ['./gallery-page.component.css']
 })
 export class GalleryPageComponent implements OnInit {
-  gallery: { id: string,
+  gallery: {id: number,
+    name: string,
     tagline: string,
     title: string,
-    description: string,
+    description: string
   }[];
 
   images: {
@@ -20,12 +21,12 @@ export class GalleryPageComponent implements OnInit {
     constructor(private config: ConfigService) { }
 
     ngOnInit() {
-      this.getPageData('pages', 'gallery');
-      this.getBlockData('images');
+      this.getPageData('pages', 6);
+      this.getBlockData('gallery');
 
     }
 
-    getPageData(database: string, id?: string) {
+    getPageData(database: string, id?: number) {
       this.config.getSettings(database, id).subscribe(
         data => {
           this.gallery = data;

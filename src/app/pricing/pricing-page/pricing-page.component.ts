@@ -8,10 +8,11 @@ import { ConfigService } from '../../config.service';
 })
 export class PricingPageComponent implements OnInit {
 
-  pricing: { id: string,
+  pricing: {id: number,
+    name: string,
     tagline: string,
     title: string,
-    description: string,
+    description: string
   }[];
 
   plans: {id: 1, title: string, subtitle: string,
@@ -24,12 +25,12 @@ export class PricingPageComponent implements OnInit {
     constructor(private config: ConfigService) { }
 
     ngOnInit() {
-      this.getPageData('pages', 'pricing');
+      this.getPageData('pages', 5);
       this.getBlockData('plans');
 
     }
 
-    getPageData(database: string, id?: string) {
+    getPageData(database: string, id?: number) {
       this.config.getSettings(database, id).subscribe(
         data => {
           this.pricing = data;

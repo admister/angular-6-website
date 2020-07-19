@@ -10,10 +10,11 @@ import { PagerService } from '../pager.service';
 })
 export class BlogPageComponent implements OnInit {
 
-  blog: { id: string,
+  blog: {id: number,
+    name: string,
     tagline: string,
     title: string,
-    description: string,
+    description: string
   }[];
 
   allItems: any[];
@@ -25,12 +26,12 @@ export class BlogPageComponent implements OnInit {
   constructor(private config: ConfigService, private pagerService: PagerService) { }
 
   ngOnInit() {
-    this.getPageData('pages', 'blog');
+    this.getPageData('pages', 8);
     this.getBlockData('posts');
 
   }
 
-  getPageData(database: string, id?: string) {
+  getPageData(database: string, id?: number) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.blog = data;

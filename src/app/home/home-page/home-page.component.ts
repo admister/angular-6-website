@@ -8,21 +8,20 @@ import { ConfigService } from '../../config.service';
 })
 export class HomePageComponent implements OnInit {
 
-  header: {id: string,
-  heading: string,
-  headingtext: string,
-  buttontext: string,
-  buttonlink: string,
-  image: string
+  header: {id: number,
+  name: string,
+  tagline: string,
+  title: string,
+  description: string
 }[];
 
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.getPageData('pages', 'header');
+    this.getPageData('pages', 9);
   }
 
-  getPageData(database: string, id?: string) {
+  getPageData(database: string, id?: number) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.header = data;

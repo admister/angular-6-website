@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'api/posts',
+  apiUrl: 'https://localhost/api/api.php/records',
   emailUrl: 'https://localhost/api/contact.php'
 };
 /*

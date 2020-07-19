@@ -18,7 +18,7 @@ const httpOptions = {
 export class ConfigService {
 
   config = configuration;
-  apiUrl = environment.emailUrl;
+  apiUrl = environment.apiUrl;
   emailUrl = environment.emailUrl;
 
   constructor(private http: HttpClient) { }
@@ -51,7 +51,7 @@ export class ConfigService {
 
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
+    return this.http.get<any>(`${this.apiUrl}/posts`).pipe(
       tap(
         post => console.log(post)
       ),
@@ -63,21 +63,28 @@ export class ConfigService {
     let uid = id || null;
     let url: string;
     if (uid !== null) {
-      url = `api/${database}/${id}`;
+      url = `${this.apiUrl}/${database}/${id}`;
+      return this.http.get<any>(url).pipe(
+        tap(
+          setting => console.log(setting)
+        ),
+        catchError(this.handleError( ` get for ${database}`, []))
+      );
     } else {
-      url = `api/${database}`;
+      url = `${this.apiUrl}/${database}`;
+      return this.http.get<any>(url).pipe(
+        map(
+          setting => setting['records']
+        ),
+        catchError(this.handleError( ` get for ${database}`, []))
+      );
     }
 
-    return this.http.get<any>(url).pipe(
-      tap(
-        setting => console.log(setting)
-      ),
-      catchError(this.handleError( ` get for ${database}`, []))
-    );
+
   }
 
   updatePost(formData: NgForm): Observable<Post> {
-    return this.http.put<any>(`${this.apiUrl}`, formData, httpOptions).pipe(
+    return this.http.put<any>(`${this.apiUrl}/posts`, formData, httpOptions).pipe(
       tap(
         post => console.log(post)
       ),
@@ -86,7 +93,7 @@ export class ConfigService {
   }
 
   addPost(formData: NgForm): Observable<PostBlockComponent> {
-    return this.http.post<any>(`${this.apiUrl}`, formData, httpOptions).pipe(
+    return this.http.post<any>(`${this.apiUrl}/posts`, formData, httpOptions).pipe(
       tap(
         post => console.log(post)
       ),
@@ -95,7 +102,7 @@ export class ConfigService {
   }
 
   getPostByID(id: number) {
-    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/posts/${id}`).pipe(
       tap(
         post => console.log(post)
       ),

@@ -8,19 +8,20 @@ import { ConfigService } from '../../config.service';
 })
 export class ServicesPageComponent implements OnInit {
 
-  services: {id: string,
-  tagline: string,
-  title: string,
-  description: string
-}[];
+  services: {id: number,
+    name: string,
+    tagline: string,
+    title: string,
+    description: string
+  }[];
 
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.getPageData('pages', 'services');
+    this.getPageData('pages', 3);
   }
 
-  getPageData(database: string, id?: string) {
+  getPageData(database: string, id?: number) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.services = data;

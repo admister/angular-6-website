@@ -68,10 +68,10 @@ import { WebsiteBlockComponent } from './website-block/website-block.component';
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
 // Remove it when a real server is ready to receive requests.
-HttpClientInMemoryWebApiModule.forRoot(
-  InMemoryDataService, { dataEncapsulation: false,
-  passThruUnknownUrl: true }
-)
+// HttpClientInMemoryWebApiModule.forRoot(
+//   InMemoryDataService, { dataEncapsulation: false,
+//   passThruUnknownUrl: true }
+// )
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

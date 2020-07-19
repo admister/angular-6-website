@@ -14,7 +14,12 @@ import { ConfigService } from '../config.service';
 })
 export class NavigationComponent implements OnInit, AfterContentChecked {
 
-  menu: any;
+  menu: {id: number,
+    title: string,
+    link: string,
+    outlet: string
+  }[];
+  
   isLoggedIn: boolean;
   menuOpen: boolean;
   database = 'menu';

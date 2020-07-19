@@ -8,23 +8,24 @@ import { ConfigService } from 'src/app/config.service';
 })
 export class ClientsPageComponent implements OnInit {
 
-  clients: {id: string,
-  tagline: string,
-  title: string,
-  description: string,
-}[];
+  clients: {id: number,
+    name: string,
+    tagline: string,
+    title: string,
+    description: string
+  }[];
 
   companies: {id: number , name: string, weblink: string, logo: string}[];
 
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.getPageData('pages', 'clients');
+    this.getPageData('pages', 2 );
     this.getBlockData('companies');
 
   }
 
-  getPageData(database: string, id?: string) {
+  getPageData(database: string, id?: number) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.clients = data;

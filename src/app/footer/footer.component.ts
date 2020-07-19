@@ -8,19 +8,25 @@ import { ConfigService } from '../config.service';
 })
 export class FooterComponent implements OnInit {
 
-  footer: {
-    copyrighttext: string,
-    developer: string,
-    developerlink: string ,
-};
+  footer: {id: number,
+    name: string,
+    tagline: string,
+    title: string,
+    description: string
+  }[];
 
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.footer = this.getFooter();
+   this.getPageData('pages', 7);
   }
 
-  getFooter() {
-    return this.config.getConfig().footer;
+  getPageData(database: string, id?: number) {
+    this.config.getSettings(database, id).subscribe(
+      data => {
+        this.footer = data;
+        console.log(this.footer);
+      }
+    );
   }
 }

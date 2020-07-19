@@ -8,11 +8,12 @@ import { ConfigService } from 'src/app/config.service';
 })
 export class AboutPageComponent implements OnInit {
 
-  intro: { id: string,
-  tagline: string,
-  title: string,
-  description: string,
-}[];
+  intro: {id: number,
+    name: string,
+    tagline: string,
+    title: string,
+    description: string
+  }[];
 
 features: {
   id: number,
@@ -23,12 +24,12 @@ features: {
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
-    this.getPageData('pages', 'intro');
+    this.getPageData('pages', 1);
     this.getBlockData('features');
 
   }
 
-  getPageData(database: string, id?: string) {
+  getPageData(database: string, id?: number) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.intro = data;
